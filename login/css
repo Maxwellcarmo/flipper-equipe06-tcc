@@ -1,0 +1,126 @@
+/* Estilos específicos para a tela de Login */
+
+/* Estilo para a caixa de login (similar a .vaga-card ou .coordinator-card) */
+.login-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Largura máxima do formulário */
+    margin: 20px auto 40px; /* Centraliza na tela */
+}
+
+/* Grupo de Input */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+/* Botão de Login (ajuste do estilo .ver-mais) */
+.login-button {
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    padding: 14px;
+}
+
+/* Link Esqueci Minha Senha */
+.forgot-password {
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+.forgot-password a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.forgot-password a:hover {
+    color: #003f8a;
+    text-decoration: underline;
+}
+
+
+/* SELEÇÃO DE PERFIL */
+
+.profile-selector {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-btn {
+    flex: 1; /* Permite que os botões tenham larguras iguais */
+    padding: 10px 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #0056b3;
+    background-color: #f4f7fb; /* Cor de fundo suave */
+    border: 2px solid #e0e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.profile-btn i {
+    font-size: 1.2rem;
+}
+
+.profile-btn:hover {
+    background-color: #e0e8f0;
+    border-color: #0056b3;
+}
+
+.profile-btn.active {
+    color: white;
+    background-color: #0056b3;
+    border-color: #0056b3;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Responsividade para botões de perfil */
+@media (max-width: 480px) {
+    .profile-selector {
+        flex-wrap: wrap; /* Quebra em mais de uma linha se necessário */
+    }
+    .profile-btn {
+        width: 100%; /* Botões ocupam a largura total em telas muito pequenas */
+        margin-bottom: 5px;
+        flex: unset;
+        font-size: 1rem;
+        flex-direction: row; /* Volta para a linha para melhor visualização */
+        justify-content: center;
+    }
+}

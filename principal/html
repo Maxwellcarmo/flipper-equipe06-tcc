@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipper - Dashboard TCC</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            < <img src="" alt="Logo da Universidade" class="logo-img">
+            <div class="logo-text">
+                <h1>FLIPPER</h1>
+                <p class="subtitle">Sistemas de Informação</p>
+                <p class="address">Painel do Aluno</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="welcome-title">Olá, [Nome do Aluno]!</h2>
+        
+        <section class="notifications-card" id="notificationsCard">
+            <h3><i class="fas fa-exclamation-circle"></i> Últimas Notificações (Ação Necessária)</h3>
+            <div class="notifications-list" id="notificationsList">
+                <div class="notification-item">
+                    <i class="fas fa-bell"></i>
+                    <p>Carregando notificações...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="general-view">
+            <div class="status-card" id="statusCard">
+                <h3><i class="fas fa-project-diagram"></i> Status Atual do TCC</h3>
+                <p id="tccStatus">Carregando...</p>
+                <div class="time-remaining">
+                    <i class="far fa-clock"></i>
+                    <span id="timeRemaining">Calculando tempo de entrega...</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="tccProgressBar"></div>
+                </div>
+            </div>
+        </section>
+
+        <h3 class="section-subtitle">Ações Rápidas</h3>
+        <section class="shortcuts-grid">
+            
+            <a href="#" class="shortcut-card upload-card" onclick="alert('Redirecionando para Upload de Arquivos...')">
+                <i class="fas fa-upload"></i>
+                <h4>Upload de Arquivos</h4>
+                <p>Adicionar a nova versão do seu trabalho.</p>
+            </a>
+
+            <a href="#" class="shortcut-card comments-card" onclick="alert('Redirecionando para Comentários do Orientador...')">
+                <i class="fas fa-comments"></i>
+                <h4>Comentários e Feedback</h4>
+                <p>Acesse as observações do seu orientador.</p>
+            </a>
+            
+            <a href="#" class="shortcut-card bank-card" onclick="alert('Redirecionando para Agendamento de Banca...')">
+                <i class="fas fa-calendar-check"></i>
+                <h4>Agendar/Ver Banca</h4>
+                <p>Confirme datas e horários da sua apresentação final.</p>
+            </a>
+
+            <a href="#" class="shortcut-card calendar-card" onclick="alert('Redirecionando para Prazos e Calendário...')">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>Prazos e Calendário</h4>
+                <p>Visualize todas as datas limites de entrega.</p>
+            </a>
+        </section>
+
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

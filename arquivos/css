@@ -1,0 +1,220 @@
+/* ======================================= */
+/* === ESTILOS BASE COMPLEMENTARES === */
+/* ======================================= */
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #0056b3;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+/* Botão Voltar */
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #0056b3;
+    font-weight: 600;
+    margin-bottom: 20px;
+    transition: color 0.2s;
+}
+
+.back-button:hover {
+    color: #007bff;
+}
+
+/* ======================================= */
+/* === SEÇÃO UPLOAD RÁPIDO === */
+/* ======================================= */
+
+.upload-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.upload-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #499b3e; /* Verde para ação de envio */
+}
+
+.upload-card h4 {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.upload-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.upload-btn {
+    background-color: #499b3e;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-weight: 600;
+    width: 100%;
+}
+
+.upload-btn:hover {
+    background-color: #3a7a30;
+}
+
+/* ======================================= */
+/* === SEÇÃO HISTÓRICO DE VERSÕES === */
+/* ======================================= */
+
+.version-history {
+    margin-top: 40px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.total-versions {
+    background-color: #0056b3;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.version-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 15px;
+    border-left: 5px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.version-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.version-details i {
+    font-size: 2.5rem;
+    color: #f3a600; /* Ícone de PDF/Arquivo */
+}
+
+.version-info {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.file-status {
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    margin-left: 15px;
+}
+
+/* Status Cores */
+.status-aprovado {
+    background-color: #d4edda;
+    color: #155724;
+}
+.status-em-revisao {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.status-rejeitado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.file-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0056b3;
+}
+
+.file-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+    width: 100%; /* Ocupa toda a linha abaixo do nome */
+}
+
+.file-meta span {
+    margin-right: 15px;
+}
+
+.version-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.action-btn:hover {
+    background-color: #e9ecef;
+}
+
+/* Botões Específicos */
+.btn-visualizar {
+    color: #0056b3;
+    border-color: #0056b3;
+}
+.btn-baixar {
+    color: #333;
+    border-color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .upload-grid {
+        grid-template-columns: 1fr;
+    }
+    .version-details {
+        align-items: flex-start;
+    }
+    .file-name {
+        font-size: 1.1rem;
+    }
+    .version-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

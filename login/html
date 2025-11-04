@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipper - Login</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="" alt="Logo da Universidade" class="logo-img">
+            <div class="logo-text">
+                <h1>FLIPPER</h1>
+                <p class="subtitle">Sistemas de Informação</p>
+                <p class="address">Acesso ao TCC</p> 
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Acesso ao Sistema</h2>
+
+        <div class="login-box">
+            
+            <div class="profile-selector" id="profileSelector">
+                <button type="button" class="profile-btn active" data-profile="aluno">
+                    <i class="fas fa-user-graduate"></i> Aluno
+                </button>
+                <button type="button" class="profile-btn" data-profile="professor">
+                    <i class="fas fa-chalkboard-teacher"></i> Professor
+                </button>
+                <button type="button" class="profile-btn" data-profile="coordenacao">
+                    <i class="fas fa-user-tie"></i> Coordenação
+                </button>
+            </div>
+
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                
+                <div class="input-group">
+                    <label for="login">Matrícula / Usuário</label>
+                    <input type="text" id="login" name="login" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="forgot-password">
+                    <a href="#" onclick="alert('Funcionalidade de recuperação de senha em desenvolvimento.')">
+                        Esqueci minha senha
+                    </a>
+                </div>
+
+                <button type="submit" class="ver-mais login-button">
+                    Entrar
+                </button>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

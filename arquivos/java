@@ -1,0 +1,109 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. SIMULAÇÃO DOS DADOS DO HISTÓRICO (SIMPLIFICADOS)
+    const historyData = [
+        {
+            fileName: "TCC_Maria_Silva_Final.pdf",
+            version: "v3.0",
+            size: "2.4 MB",
+            status: "aprovado"
+        },
+        {
+            fileName: "TCC_Maria_Silva_Revisao.pdf",
+            version: "v2.0",
+            size: "2.1 MB",
+            status: "em-revisao"
+        },
+         {
+            fileName: "TCC_Maria_Silva_Rascunho.docx",
+            version: "v1.0",
+            size: "1.8 MB",
+            status: "aprovado"
+        }
+    ];
+
+    const versionsList = document.getElementById('versionsList');
+    const totalVersionsCount = document.getElementById('totalVersionsCount');
+    
+    // Verificamos se os elementos principais do histórico existem
+    if (versionsList && totalVersionsCount) {
+        
+        // Atualiza o contador
+        totalVersionsCount.textContent = `${historyData.length} Versões`;
+
+        // 2. FUNÇÃO PARA RENDERIZAR OS ITENS DO HISTÓRICO
+        historyData.forEach(item => {
+            
+            // Mapeamento de status para texto e classe
+            let statusText = '';
+            let statusClass = '';
+            switch (item.status) {
+                case 'aprovado':
+                    statusText = 'Aprovado';
+                    statusClass = 'status-aprovado';
+                    break;
+                case 'em-revisao':
+                    statusText = 'Em Revisão';
+                    statusClass = 'status-em-revisao';
+                    break;
+                case 'rejeitado':
+                    statusText = 'Rejeitado';
+                    statusClass = 'status-rejeitado';
+                    break;
+                default:
+                    statusText = 'Pendente';
+                    statusClass = '';
+            }
+
+            const versionItem = document.createElement('div');
+            versionItem.classList.add('version-item');
+
+            // Estrutura do Item (SIMPLIFICADA)
+            versionItem.innerHTML = `
+                <div class="version-details">
+                    <i class="fas fa-file-pdf"></i>
+                    <div class="version-info">
+                        <span class="file-name">${item.fileName}</span>
+                        <span class="file-status ${statusClass}">${statusText}</span>
+                        <p class="file-meta">
+                            <span>${item.version} • ${item.size}</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="version-actions">
+                    <a href="#" class="action-btn btn-visualizar" onclick="alert('Visualizando ${item.fileName}')">
+                        <i class="far fa-eye"></i> Visualizar
+                    </a>
+                    <a href="#" class="action-btn btn-baixar" onclick="alert('Baixando ${item.fileName}')">
+                        <i class="fas fa-download"></i> Baixar
+                    </a>
+                </div>
+            `;
+
+            versionsList.appendChild(versionItem);
+        });
+    }
+
+    // 3. FUNÇÃO DE SIMULAÇÃO DE UPLOAD
+    
+    // CORREÇÃO: Fazemos o casting explícito para HTMLInputElement
+    const fileInput1 = document.getElementById('fileInput1');
+    const fileInput2 = document.getElementById('fileInput2');
+
+    if (fileInput1 instanceof HTMLInputElement) {
+        fileInput1.addEventListener('change', function() {
+            if(this.files && this.files.length > 0) {
+                alert('Arquivo ' + this.files[0].name + ' para a Primeira Parte enviado com sucesso! Aguarde o feedback do orientador.');
+            }
+        });
+    }
+
+    if (fileInput2 instanceof HTMLInputElement) {
+        fileInput2.addEventListener('change', function() {
+            if(this.files && this.files.length > 0) {
+                alert('Arquivo ' + this.files[0].name + ' para a Versão Final enviado com sucesso!');
+            }
+        });
+    }
+});

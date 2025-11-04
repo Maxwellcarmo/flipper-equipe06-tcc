@@ -1,0 +1,66 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const selectorDiv = document.getElementById('profileSelector');
+    const loginInput = document.getElementById('login');
+    const loginLabel = document.querySelector('.input-group label');
+
+    // Função para atualizar o rótulo e o placeholder
+    function updateLoginField(profile) {
+        if (profile === 'aluno') {
+            loginLabel.textContent = 'R.A. (Registro Acadêmico)';
+            loginInput.placeholder = 'Ex: 12345678';
+        } else if (profile === 'professor') {
+            loginLabel.textContent = 'Matrícula / Usuário';
+            loginInput.placeholder = 'Ex: p_nome.sobrenome';
+        } else if (profile === 'coordenacao') {
+            loginLabel.textContent = 'Usuário (Coordenação)';
+            loginInput.placeholder = 'Ex: c_nome.sobrenome';
+        }
+    }
+
+    // Inicializa o campo de login com o perfil padrão (Aluno)
+    updateLoginField('aluno');
+
+    // Adiciona o listener para os botões
+    selectorDiv.addEventListener('click', (event) => {
+        const button = event.target.closest('.profile-btn');
+        if (button) {
+            // Remove a classe 'active' de todos os botões
+            document.querySelectorAll('.profile-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Adiciona a classe 'active' ao botão clicado
+            button.classList.add('active');
+            
+            // Atualiza o campo de login
+            const profile = button.getAttribute('data-profile');
+            updateLoginField(profile);
+        }
+    });
+});
+
+// Função de tratamento de login (a ser chamada no HTML)
+function handleLogin(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+    
+    const login = document.getElementById('login').value;
+    const password = document.getElementById('password').value;
+    const activeProfile = document.querySelector('.profile-btn.active').getAttribute('data-profile');
+
+    // Validação básica (apenas para demonstração)
+    if (login.trim() === '' || password.trim() === '') {
+        alert('Por favor, preencha todos os campos.');
+        return false;
+    }
+
+    // AQUI VOCÊ IMPLEMENTARÁ A LÓGICA DE COMUNICAÇÃO COM O BACKEND:
+    console.log(`Tentativa de Login para perfil: ${activeProfile}`);
+    console.log(`Login: ${login}`);
+    console.log(`Senha: ${password}`);
+
+    // Exemplo de sucesso (substitua isso pela chamada à API)
+    alert(`Login simulado com sucesso! Perfil: ${activeProfile}. Redirecionando...`);
+    // window.location.href = `/${activeProfile}/dashboard.html`; // Exemplo de redirecionamento
+
+    return true;
+}

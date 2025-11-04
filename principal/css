@@ -1,0 +1,196 @@
+/* Estilos Específicos para o Dashboard */
+
+/* Estilo para o Título do Nome do Aluno */
+.welcome-title {
+    margin-bottom: 25px;
+    text-align: left;
+    font-size: 2rem;
+    color: #333;
+}
+
+/* Título das Subseções */
+.section-subtitle {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #0056b3;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* ===================================== */
+/* ESTILO DO CARD DE NOTIFICAÇÕES (DESTAQUE) */
+/* ===================================== */
+
+.notifications-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border-left: 5px solid #e63946; /* Borda vermelha para chamar atenção */
+}
+
+.notifications-card h3 {
+    font-size: 1.4rem;
+    color: #e63946;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.notification-item {
+    background-color: #fcfcfc;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background-color: #f0f0f0;
+}
+
+.notification-item i {
+    color: #e63946;
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.notification-item.success i {
+    color: #499b3e; /* Verde para feedback positivo */
+}
+
+/* ===================================== */
+/* ESTILO DO CARD DE STATUS DO TCC */
+/* ===================================== */
+
+.status-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border-left: 5px solid #0056b3; /* Cor primária do Flipper */
+}
+
+.status-card h3 {
+    font-size: 1.3rem;
+    color: #0056b3;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#tccStatus {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.time-remaining {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #499b3e; /* Cor verde para tempo */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.time-remaining i {
+    font-size: 1.1rem;
+}
+
+/* Estilo para a Barra de Progresso */
+.progress-bar-container {
+    background-color: #e0e0e0;
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%; 
+    background-color: #499b3e; 
+    transition: width 1s ease-in-out;
+}
+
+/* ===================================== */
+/* ESTILO DOS ATALHOS RÁPIDOS (GRID) */
+/* ===================================== */
+
+.shortcuts-grid {
+    display: grid;
+    /* Adaptado para 3 colunas em telas grandes */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.shortcut-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none; 
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.shortcut-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.shortcut-card i {
+    font-size: 2.5rem;
+    color: #0056b3; 
+    margin-bottom: 10px;
+}
+
+.shortcut-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.shortcut-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Cores de ícones personalizadas para diferenciar */
+.upload-card i { color: #499b3e; } 
+.comments-card i { color: #e63946; } 
+.bank-card i { color: #f3a600; } 
+.calendar-card i { color: #0056b3; } 
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .shortcuts-grid {
+        grid-template-columns: 1fr;
+    }
+    .welcome-title {
+        font-size: 1.5rem;
+    }
+}
