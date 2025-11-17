@@ -1,0 +1,92 @@
+document.addEventListener('DOMContentLoaded', () => {
+    
+
+    const tccData = {
+        status: "Em Revisão do Orientador (Versão 3)",
+        currentProgress: 75, // Porcentagem de progresso
+        deliveryDate: new Date('2026-06-15') // Data final da entrega/defesa
+    };
+
+    const notifications = [
+        {
+            type: 'success',
+            message: 'O Professor [Nome Orientador] enviou o Feedback da Versão 3. Revise os comentários.',
+            date: '10 minutos atrás'
+        },
+        {
+            type: 'warning',
+            message: 'Você tem 4 dias para agendar a banca de defesa. Consulte o calendário.',
+            date: 'Ontem'
+        },
+        {
+            type: 'info',
+            message: 'Novo manual de instrução publicado. Verifique as alterações.',
+            date: '01/Nov'
+        },
+    ];
+
+    // 2. FUNÇÃO DE CÁLCULO DE TEMPO RESTANTE
+    function calculateTimeRemaining(targetDate) {
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (diff < 0) {
+            return "Prazo Expirado!";
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        return `${days} dias, ${hours} horas e ${minutes} minutos restantes.`;
+    }
+
+    // 3. ATUALIZAÇÃO DO STATUS DO TCC
+    const statusElement = document.getElementById('tccStatus');
+    const progressBar = document.getElementById('tccProgressBar');
+    const timeRemainingElement = document.getElementById('timeRemaining');
+
+    statusElement.textContent = tccData.status;
+    progressBar.style.width = `${tccData.currentProgress}%`;
+
+    // Função para atualizar o tempo a cada minuto
+    function updateTime() {
+        timeRemainingElement.textContent = calculateTimeRemaining(tccData.deliveryDate);
+    }
+
+    updateTime(); 
+    // Atualiza o tempo a cada minuto, para manter a contagem regressiva
+    setInterval(updateTime, 60000); 
+
+    // 4. PREENCHIMENTO DAS NOTIFICAÇÕES
+    const notificationsList = document.getElementById('notificationsList');
+    notificationsList.innerHTML = ''; // Limpa o conteúdo inicial
+
+    notifications.forEach(notif => {
+        const item = document.createElement('div');
+        item.classList.add('notification-item');
+        
+        let iconClass = 'fas fa-bell';
+        if (notif.type === 'success') {
+            item.classList.add('success');
+            iconClass = 'fas fa-check-circle';
+        } else if (notif.type === 'warning') {
+            iconClass = 'fas fa-exclamation-triangle';
+        } else {
+            iconClass = 'fas fa-bell'; // info/default
+        }
+
+        item.innerHTML = `<i class="${iconClass}"></i> <p>${notif.message} **(${notif.date})**</p>`;
+        notificationsList.appendChild(item);
+    });
+
+    // Se a lista de notificações estiver vazia, restaura a mensagem inicial
+    if (notifications.length === 0) {
+        notificationsList.innerHTML = `
+            <div class="notification-item">
+                <i class="fas fa-bell"></i>
+                <p>Nenhuma notificação recente. Tudo tranquilo!</p>
+            </div>
+        `;
+    }
+});
